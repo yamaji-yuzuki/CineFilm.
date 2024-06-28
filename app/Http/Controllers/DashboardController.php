@@ -13,9 +13,15 @@ class DashboardController extends Controller
         $apiKey = config('services.tmdb.api_key');
 
         // TMDb APIからデータを取得
-        $response = Http::get("https://api.themoviedb.org/3/movie/popular?api_key={$apiKey}");
-        $movies = $response->json()['results'];
+        $response = Http::get("https://api.themoviedb.org/3/movie/now_playing?api_key={$apiKey}");
+        
+        if ($response->successful()) {
+            $movies = $response->json()['results'];
+        } else {
+            $movies = [];
+        }
 
+        // ビューにデータを渡す
         return view('dashboard', compact('movies'));
     }
 }
