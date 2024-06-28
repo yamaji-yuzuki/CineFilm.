@@ -9,15 +9,13 @@ class DashboardController extends Controller
 {
     public function index()
     {
-    $apiKey = 'b320f09ca4e0a4e9aacb8425cc1d6904';
-    $response = Http::get("https://api.themoviedb.org/3/movie/now_playing", [
-        'api_key' => $apiKey,
-        'language' => 'en-US', // デフォルト言語を指定
-        'page' => 1, // ページ番号
-    ]);
+        // TMDb APIキーを取得
+        $apiKey = config('services.tmdb.api_key');
 
-    $movies = $response->json()['results'];
+        // TMDb APIからデータを取得
+        $response = Http::get("https://api.themoviedb.org/3/movie/popular?api_key={$apiKey}");
+        $movies = $response->json()['results'];
 
-    return view('dashboard', compact('movies'));
+        return view('dashboard', compact('movies'));
     }
 }

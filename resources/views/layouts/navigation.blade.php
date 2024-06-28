@@ -100,4 +100,8 @@
             </div>
         </div>
     </div>
+    <ul>
+       <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+       <li><a href="{{ route('community.index') }}">Community</a></li> 
+    </ul>
 </nav>

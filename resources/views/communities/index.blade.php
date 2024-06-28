@@ -7,14 +7,20 @@
         </h2>
     </x-slot>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="container">
+    <h1>コミュニティ一覧</h1>
+    <a href="{{ route('community.create') }}" class="btn btn-primary">コミュニティを作成</a>
+    <div class="row">
         @foreach ($communities as $community)
-            <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <div class="p-4">
-                    <h3 class="font-semibold text-lg">{{ $community->name }}</h3>
-                    <p class="text-gray-600">{{ $community->description }}</p>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $community->title }}</h5>
+                        <p class="card-text">{{ $community->description }}</p>
+                    </div>
                 </div>
             </div>
         @endforeach
+    </div>
     </div>
 </x-app-layout>
