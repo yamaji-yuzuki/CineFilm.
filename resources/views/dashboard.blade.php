@@ -4,17 +4,22 @@
             {{ __('Now Playing Movies') }}
         </h2>
     </x-slot>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        @foreach($movies as $movie)
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="w-full h-auto">
-                <div class="p-4">
-                    <h3 class="font-semibold text-lg">{{ $movie['title'] }}</h3>
-                    <p class="text-sm text-gray-600">Rating: {{ $movie['vote_average'] }}</p>
+    
+　<div class="container">
+    <h1>上映中の映画ランキング</h1>
+    <div class="row">
+        @foreach ($movies as $movie)
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://image.tmdb.org/t/p/w500{{ $movie['poster_path'] }}" class="card-img-top" alt="{{ $movie['title'] }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $movie['title'] }}</h5>
+                        <p class="card-text">{{ $movie['overview'] }}</p>
+                    </div>
                 </div>
             </div>
         @endforeach
+    </div>
     </div>
 </x-app-layout>
 
