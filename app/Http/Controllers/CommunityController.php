@@ -2,21 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Community;
 use Illuminate\Http\Request;
+use App\Models\Community;
 
 class CommunityController extends Controller
 {
     public function index()
     {
         $communities = Community::all();
-
-        return view('communities.index', compact('communities'));
+        return view('community.index', compact('communities'));
     }
-    
-    public function __construct()
+
+    public function create()
     {
-    $this->middleware('auth');
+        return view('community.create');
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        Community::create($request->all());
+
+        return redirect()->route('community.index')
+                         ->with('success', 'Community created successfully.');
+    }
 }
