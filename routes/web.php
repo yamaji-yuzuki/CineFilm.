@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CommunityController;
 
 Route::middleware('auth')->group(function () {
@@ -28,6 +28,9 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
 
+Route::get('/dashboard', [MovieController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movie.show');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/community', [CommunityController::class, 'index'])->name('community');
 });
@@ -35,3 +38,5 @@ Route::middleware(['auth'])->group(function () {
 Route::resource('community', CommunityController::class);
 Route::get('/community', [CommunityController::class, 'index'])->name('community');
 Route::get('/community/{id}', [CommunityController::class, 'show'])->name('community.show');
+
+Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movie.show');

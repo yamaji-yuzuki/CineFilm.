@@ -32,24 +32,21 @@ class CommunityController extends Controller
                          ->with('success', 'Community created successfully.');
     }
     
-    public function show(Community $id)
+    public function show($id)
     {
-        // // TMDb APIキーを取得
-        // $apiKey = config('services.tmdb.api_key');
-
+        // TMDb APIキーを取得
+        $apiKey = config('services.tmdb.api_key');
         // // TMDb APIからデータを取得
-        // $response = Http::get("https://api.themoviedb.org/3/movie/now_playing?api_key={$apiKey}");
+        $response = Http::get("https://api.themoviedb.org/3/movie/{$id}?api_key={api_key}");
         
-        // if ($response->successful()) {
-        //     $movies = $response->json()['results'];
-        //     $movies = array_search($id, array_column( $movies,'id'));
-        // } else {
-        //     $movies = array_search($id, array_column( $movies,'id'));
-        // }
+        if ($response->successful()) {
+            $movie = $response->json()['results'];
+        
+        } else {
+            $movie = [];
+        }
 
-        // // ビューにデータを渡す
-        // return view('dashboard', compact('movies'));
-        // dd($movie);
-        // return view('community');
+         // ビューにデータを渡す
+         return view('communities.show',compact('movie'));
     }
 }
