@@ -21,7 +21,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- 右半分: あらすじと最新の予告編 -->
                         <div class="w-full lg:w-2/3 pl-4 flex flex-col justify-between">
                             <div class="flex-1">
@@ -34,6 +33,20 @@
                                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $trailer['key'] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             @endif
+                        <!-- 右側のカラム -->
+                        <!-- 予告編を表示 -->
+                        @if(isset($movie['videos']['results']) && count($movie['videos']['results']) > 0)
+                            <div class="mt-4">
+                                <h2 class="text-xl font-bold mb-2">予告編</h2>
+                                @foreach($movie['videos']['results'] as $video)
+                                    @if($loop->index < 3) <!-- 最初の3つの予告編を表示 -->
+                                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $video['key'] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mb-4"></iframe>
+                                     @endif
+                                @endforeach
+                            </div>
+                        @else
+                            <p>予告編がありません。</p>
+                        @endif
                         </div>
                     </div>
                 </div>
