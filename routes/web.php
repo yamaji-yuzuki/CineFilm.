@@ -35,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/community', [CommunityController::class, 'index'])->name('community');
 });
 
-Route::resource('community', CommunityController::class);
+Route::resource('communities', CommunityController::class);
 Route::get('/community', [CommunityController::class, 'index'])->name('community');
 Route::get('/community/{id}', [CommunityController::class, 'show'])->name('community.show');
 
