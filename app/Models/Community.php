@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Community extends Model
 {
+    use HasFactory;
+
+    // マスアサインメントを許可するフィールドを指定
+    protected $fillable = [
+        'name',
+        'description',
+        // 他のフィールドも追加
+    ];
+
     // public function show($id) 
     // {
     //     // TMDb APIキーを取得

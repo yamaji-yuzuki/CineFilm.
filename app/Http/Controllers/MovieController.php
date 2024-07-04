@@ -19,9 +19,15 @@ class MovieController extends Controller
     public function show($id)
     {
         $apiKey = config('services.tmdb.api_key');
-        $response = Http::get("https://api.themoviedb.org/3/movie/{$id}?api_key={$apiKey}&language=ja-JP&append_to_response=videos");
+        $response = Http::get("https://api.themoviedb.org/3/movie/{$id}?api_key={$apiKey}&language=ja-JP");
         $movie = $response->json();
 
-        return view('movie.show', compact('movie'));
+        $videosResponse = Http::get("https://api.themoviedb.org/3/movie/{$id}/videos?api_key={$apiKey}&language=ja-JP");
+        $videos = $videosResponse->json()['results'];
+
+        // 最新の予告編を一つだけ取得
+        $trailer = collect($videos)->firstWhere('type', 'Trailer');
+
+        return view('movie.show', compact('movie', 'trailer'));
     }
 }
