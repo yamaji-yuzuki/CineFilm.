@@ -11,11 +11,16 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['community_id', 'user_id', 'content'];
+    protected $fillable = ['content', 'user_id', 'community_id'];
 
     public function community()
     {
         return $this->belongsTo(Community::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 
     public function user()
@@ -26,10 +31,5 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany(Like::class);
-    }
-
-    public function replies()
-    {
-        return $this->hasMany(Reply::class);
     }
 }
