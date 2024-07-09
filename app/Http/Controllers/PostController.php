@@ -3,27 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
+use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    // public function index()
-    // {
-    //     try {
-    //         $client = new Client();
-    //         $response = $client->get('https://api.themoviedb.org/3/movie/now_playing', [
-    //             'query' => [
-    //                 'api_key' => env('TMDB_API_KEY'),
-    //                 'language' => 'en-US',
-    //                 'page' => 1
-    //             ]
-    //         ]);
+    public function store(Request $request, $communityId)
+    {
+        $request->validate([
+            'content' => 'required|string|max:255',
+        ]);
 
-    //         $movies = json_decode($response->getBody(), true)['results'];
+        $post = new Post();
+        $post->content = $request->input('content');
+        $post->user_id = Auth::id();
+        $post->community_id = $communityId;
+        $post->save();
 
-    //         return view('dashboard', compact('movies'));
-    //     } catch (\Exception $e) {
-    //         return view('dashboard')->withErrors('Failed to retrieve movies.');
-    //     }
-    // }
+        return redirect()->route('communities.show', $communityId)->with('success', 'Post created successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+
+        // ポリシーによる認可チェック
+        $this->authorize('delete', $post);
+
+        $post->delete();
+
+        return back()->with('success', 'Post deleted successfully.');
+    }
 }

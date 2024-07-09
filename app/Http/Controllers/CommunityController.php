@@ -18,6 +18,12 @@ class CommunityController extends Controller
         return view('communities.create');
     }
     
+    public function show($id)
+    {
+        $community = Community::with('posts.replies', 'posts.likes', 'posts.user')->findOrFail($id);
+        return view('communities.show', compact('community'));
+    }
+    
     public function store(Request $request)
     {
         $request->validate([
