@@ -15,6 +15,11 @@ class Community extends Model
         'description',
         // 他のフィールドも追加
     ];
+    
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 
     // public function show($id) 
     // {

@@ -7,15 +7,6 @@ use Illuminate\Support\Facades\Http;
 
 class MovieController extends Controller
 {
-    public function index()
-    {
-        $apiKey = config('services.tmdb.api_key');
-        $response = Http::get("https://api.themoviedb.org/3/movie/now_playing?api_key={$apiKey}&language=ja-JP");
-        $movies = $response->json()['results'];
-
-        return view('dashboard', compact('movies'));
-    }
-
     public function show($id)
     {
         $apiKey = config('services.tmdb.api_key');
