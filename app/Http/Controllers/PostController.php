@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Community;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -23,15 +24,10 @@ class PostController extends Controller
         return redirect()->route('communities.show', $communityId)->with('success', 'Post created successfully.');
     }
 
-    public function destroy($id)
+    public function destroy(Post $post, Community $community)
     {
-        $post = Post::findOrFail($id);
-
-        // ポリシーによる認可チェック
-        $this->authorize('delete', $post);
-
+        $community_id = $post->community_id;
         $post->delete();
-
-        return back()->with('success', 'Post deleted successfully.');
+        return redirect('/communities/' . $community_id )->with('message', 'Delete successful');
     }
 }
