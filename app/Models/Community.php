@@ -36,3 +36,4 @@ class Community extends Model
     //     }
     // }
 }
+

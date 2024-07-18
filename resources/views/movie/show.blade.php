@@ -35,6 +35,11 @@
                             @endif
                         <!-- 右側のカラム -->
                         <!-- 予告編を表示 -->
+                        @if(isset($movie['videos']['results']))
+                            <div class="mt-4">
+                                <h2 class="text-xl font-bold mb-2">予告編</h2>
+                                @foreach($movie['videos']['results'] as $video)
+                                    @if($loop->index) <!-- 最初の予告編を表示 -->
                         @if(isset($movie['videos']['results']) && count($movie['videos']['results']) > 0)
                             <div class="mt-4">
                                 <h2 class="text-xl font-bold mb-2">予告編</h2>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Community;
+use Illuminate\Support\Facades\Auth;
 
 class CommunityController extends Controller
 {
@@ -17,11 +18,20 @@ class CommunityController extends Controller
     {
         return view('communities.create');
     }
-    
-    public function show($id)
+   
+     public function show($id)
     {
+        $user=Auth::id();
+        
         $community = Community::with('posts.replies', 'posts.likes', 'posts.user')->findOrFail($id);
-        return view('communities.show', compact('community'));
+        
+        // IDに基づいてコミュニティを取得
+        $community = Community::findOrFail($id);
+
+        // コミュニティに関連する投稿を取得
+        $posts = $community->posts; // 例：コミュニティが持つ投稿を取得
+        
+        return view('communities.show', compact('community', 'posts', 'user'));
     }
     
     public function store(Request $request)
