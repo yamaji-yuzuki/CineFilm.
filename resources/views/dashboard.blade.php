@@ -20,6 +20,48 @@
                                         <a href="{{ route('movie.show', $movie['id']) }}" class="text-blue-500 hover:underline">
                                             {{ $movie['title'] }}
                                         </a>
+                                        <div class="font-size:300% color:#a09a9a">
+                                            <span class="star" id="1">★</span>
+                                            <span class="star" id="2">★</span>
+                                            <span class="star" id="3">★</span>
+                                            <span class="star" id="4">★</span>
+                                            <span class="star" id="5">★</span> 
+                                            <script>
+                                                 stars[i].addEventListener(
+                                                  "mouseover",
+                                                  () => {
+                                                    if (!clicked) { //クリックが一度もされていないとき
+                                                      for (let j = 0; j <= i; j++) { //星1から上にカーソルがある星まで
+                                                        stars[j].style.color = "#f0da61"; //黄色に
+                                                      }
+                                                    }
+                                                  },
+                                                  false
+                                                );
+                                            
+                                                stars[i].addEventListener(
+                                                  "mouseout",
+                                                  () => {
+                                                    if (!clicked) { //クリックが一度もされていないとき
+                                                      for (let j = 0; j < stars.length; j++) { //星1から星5まで
+                                                        stars[j].style.color = "#a09a9a"; //グレーに
+                                                      }
+                                                    }
+                                                  },
+                                                  false
+                                                );
+                                                
+                                                stars[i].addEventListener("click", () => {
+                                                    clicked = true; //クリック済
+                                                    for (let j = 0; j <= i; j++) {  //星1からクリックされた星まで
+                                                        stars[j].style.color = "#f0da61"; //黄色に
+                                                    }
+                                                    for (let j = i + 1; j < stars.length; j++) {  //クリックされた星の次から星5まで
+                                                        stars[j].style.color = "#a09a9a";  //グレーに
+                                                    }
+                                                }, false);
+                                            </script>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

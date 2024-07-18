@@ -34,6 +34,20 @@
                                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $trailer['key'] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             @endif
+                        <!-- 右側のカラム -->
+                        <!-- 予告編を表示 -->
+                        @if(isset($movie['videos']['results']))
+                            <div class="mt-4">
+                                <h2 class="text-xl font-bold mb-2">予告編</h2>
+                                @foreach($movie['videos']['results'] as $video)
+                                    @if($loop->index) <!-- 最初の予告編を表示 -->
+                                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $video['key'] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mb-4"></iframe>
+                                     @endif
+                                @endforeach
+                            </div>
+                        @else
+                            <p>予告編がありません。</p>
+                        @endif
                         </div>
                     </div>
                 </div>
