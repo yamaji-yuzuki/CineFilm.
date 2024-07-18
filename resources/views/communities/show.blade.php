@@ -40,7 +40,7 @@
                               <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                   @csrf
                                   @method('DELETE')
-                                  <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded" onclick="deletePost({{ $post->id }})">
+                                  <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold rounded" onclick="deletePost({{ $post->id }})">
                                       Delete
                                   </button>
                                </form>
