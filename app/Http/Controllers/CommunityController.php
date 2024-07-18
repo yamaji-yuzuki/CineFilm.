@@ -18,7 +18,7 @@ class CommunityController extends Controller
     {
         return view('communities.create');
     }
-    
+   
      public function show($id)
     {
         $user=Auth::id();
