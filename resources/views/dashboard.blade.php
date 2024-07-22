@@ -7,6 +7,7 @@
         </h2>
     </x-slot>
 
+<body>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -26,41 +27,6 @@
                                             <span class="star" id="3">★</span>
                                             <span class="star" id="4">★</span>
                                             <span class="star" id="5">★</span> 
-                                            <script>
-                                                 stars[i].addEventListener(
-                                                  "mouseover",
-                                                  () => {
-                                                    if (!clicked) { //クリックが一度もされていないとき
-                                                      for (let j = 0; j <= i; j++) { //星1から上にカーソルがある星まで
-                                                        stars[j].style.color = "#f0da61"; //黄色に
-                                                      }
-                                                    }
-                                                  },
-                                                  false
-                                                );
-                                            
-                                                stars[i].addEventListener(
-                                                  "mouseout",
-                                                  () => {
-                                                    if (!clicked) { //クリックが一度もされていないとき
-                                                      for (let j = 0; j < stars.length; j++) { //星1から星5まで
-                                                        stars[j].style.color = "#a09a9a"; //グレーに
-                                                      }
-                                                    }
-                                                  },
-                                                  false
-                                                );
-                                                
-                                                stars[i].addEventListener("click", () => {
-                                                    clicked = true; //クリック済
-                                                    for (let j = 0; j <= i; j++) {  //星1からクリックされた星まで
-                                                        stars[j].style.color = "#f0da61"; //黄色に
-                                                    }
-                                                    for (let j = i + 1; j < stars.length; j++) {  //クリックされた星の次から星5まで
-                                                        stars[j].style.color = "#a09a9a";  //グレーに
-                                                    }
-                                                }, false);
-                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -71,4 +37,50 @@
             </div>
         </div>
     </div>
+        <script>
+            var stars = document.getElementsByClassName("star");
+            var clicked = false;
+            document.addEventListener("DOMContentLoaded", () => {
+              for (let i = 0; i < stars.length; i++) {
+                stars[i].addEventListener(
+                  "mouseover",
+                  () => {
+                    if (!clicked) {
+                      for (let j = 0; j <= i; j++) {
+                        stars[j].style.color = "#f0da61";
+                      }
+                    }
+                  },
+                  false
+                );
+            
+                stars[i].addEventListener(
+                  "mouseout",
+                  () => {
+                    if (!clicked) {
+                      for (let j = 0; j < stars.length; j++) {
+                        stars[j].style.color = "#a09a9a";
+                      }
+                    }
+                  },
+                  false
+                );
+            
+                stars[i].addEventListener(
+                  "click",
+                  () => {
+                    clicked = true;
+                    for (let j = 0; j <= i; j++) {
+                      stars[j].style.color = "#f0da61";
+                    }
+                    for (let j = i + 1; j < stars.length; j++) {
+                      stars[j].style.color = "#a09a9a";
+                    }
+                  },
+                  false
+                );
+              }
+            });
+        </script>
+</body>
 </x-app-layout>
