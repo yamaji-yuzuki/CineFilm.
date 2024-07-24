@@ -7,8 +7,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\LikeController;
-use App\Http\Controllers\ReplyController;
 
 Route::get('/', function () {return view('welcome');});
 

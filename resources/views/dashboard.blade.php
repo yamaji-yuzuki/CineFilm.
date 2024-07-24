@@ -21,12 +21,19 @@
                                         <a href="{{ route('movie.show', $movie['id']) }}" class="text-blue-500 hover:underline">
                                             {{ $movie['title'] }}
                                         </a>
-                                        <div class="font-size:300% color:#a09a9a">
-                                            <span class="star" id="1">★</span>
-                                            <span class="star" id="2">★</span>
-                                            <span class="star" id="3">★</span>
-                                            <span class="star" id="4">★</span>
-                                            <span class="star" id="5">★</span> 
+                                        <!--<div class="font-size:300% color:#a09a9a">-->
+                                        <!--    <span class="stars" id="{{ $movie['id'] }}1" value="{{ $movie['id'] }}" data-id="{{ $movie['id'] }}">★</span>-->
+                                        <!--    <span class="stars" id="{{ $movie['id'] }}2" value="{{ $movie['id'] }}" data-id="{{ $movie['id'] }}">★</span>-->
+                                        <!--    <span class="stars" id="{{ $movie['id'] }}3" value="{{ $movie['id'] }}" data-id="{{ $movie['id'] }}">★</span>-->
+                                        <!--    <span class="stars" id="{{ $movie['id'] }}4" value="{{ $movie['id'] }}" data-id="{{ $movie['id'] }}">★</span>-->
+                                        <!--    <span class="stars" id="{{ $movie['id'] }}5" value="{{ $movie['id'] }}" data-id="{{ $movie['id'] }}">★</span> -->
+                                        <!--</div>-->
+                                        <div class="font-size:300% color:#a09a9a rating">
+                                          <span class="star" id="1">★</span>
+                                          <span class="star" id="2">★</span>
+                                          <span class="star" id="3">★</span>
+                                          <span class="star" id="4">★</span>
+                                          <span class="star" id="5">★</span>
                                         </div>
                                     </div>
                                 </div>
@@ -38,49 +45,42 @@
         </div>
     </div>
         <script>
-            var stars = document.getElementsByClassName("star");
-            var clicked = false;
-            document.addEventListener("DOMContentLoaded", () => {
-              for (let i = 0; i < stars.length; i++) {
-                stars[i].addEventListener(
-                  "mouseover",
-                  () => {
-                    if (!clicked) {
-                      for (let j = 0; j <= i; j++) {
-                        stars[j].style.color = "#f0da61";
-                      }
-                    }
-                  },
-                  false
-                );
+          document.addEventListener("DOMContentLoaded", () => {
+            const ratings = document.querySelectorAll(".rating");
             
-                stars[i].addEventListener(
-                  "mouseout",
-                  () => {
-                    if (!clicked) {
-                      for (let j = 0; j < stars.length; j++) {
-                        stars[j].style.color = "#a09a9a";
-                      }
-                    }
-                  },
-                  false
-                );
-            
-                stars[i].addEventListener(
-                  "click",
-                  () => {
-                    clicked = true;
+            ratings.forEach((rating) => {
+              const stars = rating.querySelectorAll(".star");
+              let clicked = false;
+              
+              stars.forEach((star, i) => {
+                star.addEventListener("mouseover", () => {
+                  if (!clicked) {
                     for (let j = 0; j <= i; j++) {
                       stars[j].style.color = "#f0da61";
                     }
-                    for (let j = i + 1; j < stars.length; j++) {
+                  }
+                });
+          
+                star.addEventListener("mouseout", () => {
+                  if (!clicked) {
+                    for (let j = 0; j < stars.length; j++) {
                       stars[j].style.color = "#a09a9a";
                     }
-                  },
-                  false
-                );
-              }
+                  }
+                });
+          
+                star.addEventListener("click", () => {
+                  clicked = true;
+                  for (let j = 0; j <= i; j++) {
+                    stars[j].style.color = "#f0da61";
+                  }
+                  for (let j = i + 1; j < stars.length; j++) {
+                    stars[j].style.color = "#a09a9a";
+                  }
+                });
+              });
             });
+          });
         </script>
 </body>
 </x-app-layout>
