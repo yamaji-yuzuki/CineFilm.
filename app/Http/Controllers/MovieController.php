@@ -15,10 +15,12 @@ class MovieController extends Controller
 
         $videosResponse = Http::get("https://api.themoviedb.org/3/movie/{$id}/videos?api_key={$apiKey}&language=ja-JP");
         $videos = $videosResponse->json()['results'];
+        
 
         // 最新の予告編を一つだけ取得
         $trailer = collect($videos)->firstWhere('type', 'Trailer');
-
+    
+        
         return view('movie.show', compact('movie', 'trailer'));
     }
 }

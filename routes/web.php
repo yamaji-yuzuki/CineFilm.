@@ -28,11 +28,10 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::resource('communities', CommunityController::class);
-Route::get('/community', [CommunityController::class, 'index'])->name('community');
 
 Route::get('/community/{post}', [CommunityController::class, 'show'])->name('community.show');
 Route::get('/community/{id}', [CommunityController::class, 'show'])->name('community.show');
-Route::delete('communities/destroy-multiple', [CommunityController::class, 'destroyMultiple'])->name('communities.destroyMultiple');
+Route::delete('/community/{community}', [CommunityController::class, 'destroy'])->name('/community/');
 
 Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movie.show');
 

@@ -22,9 +22,6 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <form id="deleteMultipleForm" action="{{ route('communities.destroyMultiple') }}" method="POST">
-                        @csrf
-                        @method('DELETE')
                         <table class="min-w-full leading-normal">
                             <thead>
                                 <tr>
@@ -51,10 +48,10 @@
                                             {{ $community->description }}
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <form action="{{ route('communities.destroy', $community->id) }}" method="POST">
+                                            <form action="/community/{{ $community->id }}" id="form_{{ $community->id }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
+                                                <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded" onclick="deletePost({{ $community->id }})">
                                                     Delete
                                                 </button>
                                             </form>
@@ -63,9 +60,16 @@
                                 @endforeach
                             </tbody>
                         </table>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+    function deletePost(id) {
+        'use strict'
+
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(`form_${id}`).submit();
+        }}
+    </script>
 </x-app-layout>
