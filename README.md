@@ -1,26 +1,26 @@
 # CineFilm
 
-### About CineFilm
+### CineFilmについて
 
-● overview ● <br />
-&emsp;A user-only app where you can share your thoughts on movies and make friends.
+#####アプリ概要
+映画の感想を共有したり、友人をつくることができるユーザー限定のアプリ
 
-● Production background ●<br />
-&emsp;One of my hobbies is watching movies.<br />
-&emsp;Now that social media is evolving, many people have experienced spoilers for movies they want to see being &emsp;posted on their media without any warning. I am one of those who actually experienced it.<br />
-&emsp;I thought there was a need for an app that allows people to interact in real time for people who want to share &emsp;their impressions immediately after watching a movie, or who want to make friends with the same interests as they &emsp;don't care about spoilers.
+#####作成背景
+私の趣味のひとつに映画鑑賞があります。
+SNSが進化している今、なんの予告もなしに自分の媒体に見たい映画のネタバレが流れてくるというのを経験した人は少なくありません。実際に私も経験したうちの1人です。
+「映画を見た後、すぐに感想を共有したい」「ネタバレは気にしていないので同じ趣味の友人を作りたい」という方々のために、リアルタイムで交流できるアプリが必要だと考えました。
 
-● App URL ●<br />
-&emsp;https://cinefilm-b91a48a7a9d6.herokuapp.com/
+#####機能一覧
+●ログイン機能
+●映画ランキング（TMDb API）
+●映画評価（☆５段階）
+●映画詳細（サムネ、タイトル、あらすじ、予告編）
+●コミュニティ一覧（タイトル、詳細）
+　　◉作成機能
+　　◉削除機能
+●コミュニティ詳細（タイトル、詳細、ポスト一覧）
+　　◉Pusherを用いた返信機能
+　　◉削除機能
 
-● function ●<br />
-&emsp;・Login function<br />
-&emsp;・Movie ranking (TMDb API)<br />
-&emsp;・Movie rating (☆ 5 levels)<br />
-&emsp;・Movie details (thumbnail, title, synopsis, trailer)<br />
-&emsp;・Community list (title, details)<br />
-&emsp;&emsp;Creation function<br />
-&emsp;&emsp;Delete function<br />
-&emsp;・Community details (title, details, post list)<br />
-&emsp;&emsp;Reply function using Pusher<br />
-&emsp;&emsp;Delete function
+アプリURL
+https://cinefilm-b91a48a7a9d6.herokuapp.com/
