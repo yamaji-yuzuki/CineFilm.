@@ -1,9 +1,9 @@
-<h1>CineFilm</h1>
+# CineFilm
 
 ## About CineFilm
 
 ● overview ● <br />
-&nbsp;A user-only app where you can share your thoughts on movies and make friends.
+&ensp;A user-only app where you can share your thoughts on movies and make friends.
 
 ● Production background ●<br />
   One of my hobbies is watching movies.
