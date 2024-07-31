@@ -1,6 +1,6 @@
 # CineFilm
 
-## About CineFilm
+### About CineFilm
 
 ● overview ● <br />
 &emsp;A user-only app where you can share your thoughts on movies and make friends.
