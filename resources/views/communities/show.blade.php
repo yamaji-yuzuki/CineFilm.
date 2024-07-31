@@ -40,7 +40,7 @@
                               <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                   @csrf
                                   @method('DELETE')
-                                  <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold rounded" onclick="deletePost({{ $post->id }})">
+                                  <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold rounded" onclick="return deletePost({{ $post->id }})">
                                       Delete
                                   </button>
                                </form>
@@ -59,11 +59,16 @@
         </div>
     </div>
     <script>
-    function deletePost(id) {
+        function deletePost(id) {
         'use strict'
 
         if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
             document.getElementById(`form_${id}`).submit();
-        }}
+            return true; 
+            }else{
+                alert('キャンセルされました'); 
+                return false; 
+            }
+        }
     </script>
 </x-app-layout>
