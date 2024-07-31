@@ -3,7 +3,7 @@
 ## About CineFilm
 
 ● overview ● <br />
-&ensp;A user-only app where you can share your thoughts on movies and make friends.
+&emsp;A user-only app where you can share your thoughts on movies and make friends.
 
 ● Production background ●<br />
   One of my hobbies is watching movies.
