@@ -2,10 +2,10 @@
 
 ## About CineFilm
 
-● overview ●
+● overview ● <br />
   A user-only app where you can share your thoughts on movies and make friends.
 
-● Production background ●
+● Production background ●<br />
   One of my hobbies is watching movies.
   Now that social media is evolving, many people have experienced spoilers for 
   movies they want to see being posted on their media without any warning. I 
@@ -15,17 +15,17 @@
   watching a movie, or who want to make friends with the same interests as 
   they don't care about spoilers.
 
-● App URL ●
+● App URL ●<br />
   https://cinefilm-b91a48a7a9d6.herokuapp.com/
 
-● function ●
-  ・Login function
-  ・Movie ranking (TMDb API)
-  ・Movie rating (☆ 5 levels)
-  ・Movie details (thumbnail, title, synopsis, trailer)
-  ・Community list (title, details)
-     Creation function
-     Delete function
-  ・Community details (title, details, post list)
-     Reply function using Pusher
+● function ●<br />
+  ・Login function<br />
+  ・Movie ranking (TMDb API)<br />
+  ・Movie rating (☆ 5 levels)<br />
+  ・Movie details (thumbnail, title, synopsis, trailer)<br />
+  ・Community list (title, details)<br />
+     Creation function<br />
+     Delete function<br />
+  ・Community details (title, details, post list)<br />
+     Reply function using Pusher<br />
      Delete function
