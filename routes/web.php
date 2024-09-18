@@ -8,14 +8,20 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\PostController;
 
-Route::get('/', function () {return view('welcome');});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
+Route::get('/', function () {
+        return view('welcome');
+    });
+    
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+    
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    });
 
 require __DIR__.'/auth.php';
 
@@ -37,5 +43,3 @@ Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movie.show');
 
 Route::post('communities/{community}/posts', [PostController::class, 'store'])->name('posts.store');
 Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
-
-require __DIR__.'/auth.php';
