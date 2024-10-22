@@ -25,11 +25,13 @@ class CommunityController extends Controller
         
         $community = Community::with('posts.replies', 'posts.likes', 'posts.user')->findOrFail($id);
         
-        // IDに基づいてコミュニティを取得
-        $community = Community::findOrFail($id);
-
-        // コミュニティに関連する投稿を取得
-        $posts = $community->posts; // 例：コミュニティが持つ投稿を取得
+        // IDに基づいてコミュニティを取得し、関連データをEagerロード
+        $community = Community::with(['posts' => function($query) {
+            $query->orderBy('created_at', 'desc'); // 投稿を降順（最新順）で取得
+        }, 'posts.replies', 'posts.likes', 'posts.user'])->findOrFail($id);
+        
+        // コミュニティに関連する投稿を取得（すでにEagerロードされているため、追加のクエリは不要）
+        $posts = $community->posts;
         
         return view('communities.show', compact('community', 'posts', 'user'));
     }
