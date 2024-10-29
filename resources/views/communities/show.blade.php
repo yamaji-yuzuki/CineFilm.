@@ -53,12 +53,46 @@
                            <div class="text-sm text-gray-600">
                               {{ $post->created_at->format('M d, Y') }}
                            </div>
+                           <!--<div class="hover:bg-red-700 text-black font-bold rounded">-->
+                           <!--    <button class="like-button" data-post-id="{{ $post->id }}">-->
+                           <!--         ♥ <span class="like-count">{{ $post->likes->count() }}</span>-->
+                           <!--    </button>-->
+                           <!--</div>-->
                            </div>
                         @endif
                     @endforeach
             </div>
         </div>
     </div>
+    <!--@section('scripts')-->
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+    <!--<script>-->
+    <!--    $('.like-button').on('click', function() {-->
+    <!--    const postId = $(this).data('post-id');-->
+    
+    <!--    $.ajax({-->
+    <!--        url: '/communities/',-->
+    <!--        type: 'POST',-->
+    <!--        success: function(response) {-->
+    <!--            // 成功したら、いいね数を更新する-->
+    <!--            $(`.like-button[data-post-id="${postId}"] .like-count`).text(response.likes_count);-->
+    <!--        }-->
+    <!--        });-->
+    <!--    });-->
+    <!--</script>-->
+    <!--<script>-->
+    <!--    var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {-->
+    <!--        cluster: '{{ env('PUSHER_APP_CLUSTER') }}'-->
+    <!--    });-->
+        
+        // チャンネルにサブスクライブ
+    <!--    var channel = pusher.subscribe('posts');-->
+    <!--    channel.bind('postLiked', function(data) {-->
+    <!--        // コメントIDに基づいて、いいね数を更新-->
+    <!--        $(`.like-button[data-post-id="${data.post_id}"] .like-count`).text(data.likes_count);-->
+    <!--    });-->
+    <!--</script>-->
+    <!--@endsection-->
     <script>
         function deletePost(id) {
         'use strict'

@@ -10,9 +10,13 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('comment_id'); // いいねされたコメントのID
+            $table->unsignedBigInteger('user_id'); // いいねをしたユーザーのID
             $table->timestamps();
+        
+            // 外部キー制約を追加する
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

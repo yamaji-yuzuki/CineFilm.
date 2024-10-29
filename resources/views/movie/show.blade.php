@@ -18,7 +18,7 @@
                         <!-- 左半分: サムネイルとタイトル -->
                         <div class="w-full lg:w-1/3 pr-4 mb-4 lg:mb-0">
                             <div class="rounded overflow-hidden shadow-lg h-full flex flex-col">
-                                <img class="w-full h-96 object-cover" src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}">
+                                <img class="w-full w-96 object-cover" src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}">
                                 <div class="px-6 py-4 flex-1">
                                     <div class="font-bold text-xl mb-2">{{ $movie['title'] }}</div>
                                 </div>
@@ -33,7 +33,7 @@
                             </div>
                             @if ($trailer)
                                 <div class="mt-4">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $trailer['key'] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="90%" height="315" src="https://www.youtube.com/embed/{{ $trailer['key'] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             @else
                                 <p>予告編がありません。</p>
