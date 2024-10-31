@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-    <ul>
-       <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-    </ul>
+    <!--<ul>-->
+    <!--   <li><a href="{{ route('dashboard') }}">Dashboard</a></li>-->
+    <!--</ul>-->
 </nav>

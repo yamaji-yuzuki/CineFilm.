@@ -34,4 +34,9 @@
 &emsp;●自分が連投するとDELETEボタンが重なってしまうので、文字ではなくゴミ箱のイラストに変更して見やすくした
 
 #### アプリURL<br />
-&emsp;https://cinefilm-b91a48a7a9d6.herokuapp.com/
+&emsp;https://cinefilm-b91a48a7a9d6.herokuapp.com/<br />
+
+#### テストアカウント<br />
+&emsp;Name：test<br />
+&emsp;Email：test@gmail.com<br />
+&emsp;Password：testaccount89
