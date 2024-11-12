@@ -41,7 +41,7 @@
                               <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                   @csrf
                                   @method('DELETE')
-                                  <button type="submit" class="hover:bg-red-700 text-white font-bold rounded" onclick="return deletePost({{ $post->id }})">
+                                  <button type="submit" class="hover:bg-red-500 text-white font-bold rounded" onclick="return deletePost({{ $post->id }})">
                                     🗑
                                   </button>
                                </form>
@@ -53,7 +53,7 @@
                            <div class="text-sm text-gray-600">
                               {{ $post->created_at->format('M d, Y') }}
                            </div>
-                           <!--<div class="hover:bg-red-700 text-black font-bold rounded">-->
+                           <!--<div class="hover:bg-pink-400 text-red font-bold rounded">-->
                            <!--    <button class="like-button" data-post-id="{{ $post->id }}">-->
                            <!--         ♥ <span class="like-count">{{ $post->likes->count() }}</span>-->
                            <!--    </button>-->
@@ -67,7 +67,7 @@
     <!--@section('scripts')-->
     <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
     <!--<script>-->
-    <!--    $('.like-button').on('click', function() {-->
+    <!--    $(document).on('click', '.like-button', function() {-->
     <!--    const postId = $(this).data('post-id');-->
     
     <!--    $.ajax({-->
@@ -93,17 +93,17 @@
     <!--    });-->
     <!--</script>-->
     <!--@endsection-->
-    <script>
-        function deletePost(id) {
-        'use strict'
+    <!--<script>-->
+    <!--    function deletePost(id) {-->
+    <!--    'use strict'-->
 
-        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
-            document.getElementById(`form_${id}`).submit();
-            return true; 
-            }else{
-                alert('キャンセルされました'); 
-                return false; 
-            }
-        }
-    </script>
+    <!--    if (confirm('削除すると復元できません。\n本当に削除しますか？')) {-->
+    <!--        document.getElementById(`form_${id}`).submit();-->
+    <!--        return true; -->
+    <!--        }else{-->
+    <!--            alert('キャンセルされました'); -->
+    <!--            return false; -->
+    <!--        }-->
+    <!--    }-->
+    <!--</script>-->
 </x-app-layout>
