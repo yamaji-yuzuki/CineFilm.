@@ -35,8 +35,3 @@
 
 #### アプリURL<br />
 &emsp;https://cinefilm-b91a48a7a9d6.herokuapp.com/<br />
-
-#### テストアカウント<br />
-&emsp;Name：test<br />
-&emsp;Email：test@gmail.com<br />
-&emsp;Password：testaccount89
