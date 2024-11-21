@@ -53,6 +53,13 @@
                            <div class="text-sm text-gray-600">
                               {{ $post->created_at->format('M d, Y') }}
                            </div>
+                           <!--<div class="container">-->
+                           <!--<div class="switch-box color-#e74c3c">-->
+                           <!--  <input id="like" class="switch-box-input" type="checkbox" />-->
+                           <!--  <label for="like" class="switch-box-slider"></label>-->
+                           <!--  <label for="like" class="switch-box-label"> ♥ </label>-->
+                           <!--</div>-->
+                           
                            <!--<div class="hover:bg-pink-400 text-red font-bold rounded">-->
                            <!--    <button class="like-button" data-post-id="{{ $post->id }}">-->
                            <!--         ♥ <span class="like-count">{{ $post->likes->count() }}</span>-->

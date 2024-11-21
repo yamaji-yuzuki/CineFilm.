@@ -11,6 +11,7 @@ class CreateLikesTable extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('comment_id'); // いいねされたコメントのID
+            $table->unsignedBigInteger('reply_id')->unsigned();
             $table->unsignedBigInteger('user_id'); // いいねをしたユーザーのID
             $table->timestamps();
         

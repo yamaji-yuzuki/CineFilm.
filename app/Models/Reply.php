@@ -7,17 +7,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
-    use HasFactory;
+    public function likes()
+  {
+    return $this->hasMany(Like::class, 'reply_id');
+  }
+  
+   /**
+  * リプライにLIKEを付いているかの判定
+  *
+  * @return bool true:Likeがついてる false:Likeがついてない
+  */
+  public function is_liked_by_auth_user()
+  {
+    $id = Auth::id();
 
-    protected $fillable = ['post_id', 'user_id', 'content'];
-
-    public function post()
-    {
-        return $this->belongsTo(Post::class);
+    $likers = array();
+    foreach($this->likes as $like) {
+      array_push($likers, $like->user_id);
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
+    if (in_array($id, $likers)) {
+      return true;
+    } else {
+      return false;
     }
+  }
+
 }

@@ -8,7 +8,8 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\PostController;
 use App\Http\Controller\ChatController;
-use APP\Http\Controller\LikeController;
+// use APP\Http\Controller\LikeController;
+// use APP\Http\Controller\ReplyController;
 
 Route::get('/', function () {
         return view('welcome');
@@ -49,3 +50,6 @@ Route::post('communities/{community}/posts', [PostController::class, 'store'])->
 Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 // Route::post('/like/{comment}', [LikeController::class, 'store'])->name('like.store');
+
+// Route::get('/reply/like/{id}', 'RepliesController@like')->name('reply.like');
+// Route::get('/reply/unlike/{id}', 'RepliesController@unlike')->name('reply.unlike');

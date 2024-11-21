@@ -3,11 +3,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
+                
+                <!-- Logo --> 
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
+                    <!--<a href="{{ route('dashboard') }}">-->
+                            <img src="https://www.videogamesprites.net/SuperMarioBros1/Characters/Mario/Mario%20-%20Dead.gif">
+                <!--        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />-->
+                    <!--</a>-->
                 </div>
 
                 <!-- Navigation Links -->
@@ -20,7 +22,87 @@
                     </x-nav-link>
                 </div>
             </div>
-
+            
+            <!-- Marioのアニメーション部分 -->
+        <!--    <div class="relative z-10">-->
+        <!--        <style>-->
+        <!--            html, body {-->
+        <!--                font-family: 'Press Start 2P', cursive;-->
+        <!--                margin: 0;-->
+        <!--                padding: 0;-->
+        <!--                overflow: hidden;-->
+        <!--            }-->
+        <!--            .sky, .ground {-->
+        <!--                position: relative;-->
+        <!--            }-->
+        <!--            .sky {-->
+        <!--                height: 200px;-->
+        <!--                background-color: #548CFF;-->
+        <!--                overflow: hidden;-->
+        <!--            }-->
+        <!--            .ground {-->
+        <!--                height: 40px;-->
+        <!--                background-color: #C84C0C;-->
+        <!--                background-image: url('https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/SuperMario-Animation/images/groundblock.png');-->
+        <!--            }-->
+        <!--            .scorebar {-->
+        <!--                position: absolute;-->
+        <!--                height: 50px;-->
+        <!--                width: 100%;-->
+        <!--                font-size: 14px;-->
+        <!--                color: white;-->
+        <!--                padding: 10px;-->
+        <!--                line-height: 1;-->
+        <!--            }-->
+        <!--            .cloud {-->
+        <!--                position: absolute;-->
+        <!--                height: 50px;-->
+        <!--                animation: wind 30s infinite linear;-->
+        <!--            }-->
+        <!--            .cloud:nth-child(2) {-->
+        <!--                top: 30px;-->
+        <!--                animation-duration: 40s;-->
+        <!--            }-->
+        <!--            .cloud:nth-child(3) {-->
+        <!--                top: 60px;-->
+        <!--                animation-duration: 60s;-->
+        <!--            }-->
+        <!--            .mario {-->
+        <!--                position: absolute;-->
+        <!--                width: 71px;-->
+        <!--                height: 72px;-->
+        <!--                background: url('https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/SuperMario-Animation/images/mariowalking/result.png') left center;-->
+        <!--                top: 10px;-->
+        <!--                left: 0;-->
+        <!--                animation: run 10s infinite linear, play 0.8s steps(4) infinite;-->
+        <!--            }-->
+        <!--            @keyframes play {-->
+        <!--                100% { background-position: -284px; }-->
+        <!--            }-->
+        <!--            @keyframes run {-->
+        <!--                0% { left: -100px; }-->
+        <!--                100% { left: 100%; }-->
+        <!--            }-->
+        <!--            @keyframes wind {-->
+        <!--                0% { left: -200px; }-->
+        <!--                100% { left: 100%; }-->
+        <!--            }-->
+        <!--        </style>-->
+        <!--        <div class="sky">-->
+        <!--            <div class="scorebar">-->
+        <!--                <p>-->
+        <!--                    <span>MARIO</span>  <span style="float:right;">WORLD 1-1</span>-->
+        <!--                </p>-->
+        <!--            </div>-->
+        <!--            <img class="cloud" src="https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/SuperMario-Animation/images/CloudSingle.gif">-->
+        <!--            <img class="cloud" src="https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/SuperMario-Animation/images/CloudDouble.gif">-->
+        <!--            <img class="cloud" src="https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/SuperMario-Animation/images/CloudTriple.gif">-->
+        <!--            <div class="mario"></div>-->
+        <!--        </div>-->
+        <!--        <div class="ground"></div>-->
+        <!--    </div>-->
+        <!--</nav>-->
+            
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
